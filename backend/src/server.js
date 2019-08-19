@@ -4,9 +4,9 @@ const cors = require('cors');
 const routes = require('./routes');
 const server = express();
 
-// mongoose.connect('link-mongoDB', {
-//     useNewUrlParser: true
-// });
+mongoose.connect('mongodb+srv://tinbooks:tinbooks152@cluster0-dcuer.mongodb.net/test?retryWrites=true&w=majority', {
+    useNewUrlParser: true
+});
 
 server.use(cors());
 server.use(express.json());

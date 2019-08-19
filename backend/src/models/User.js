@@ -9,21 +9,31 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    senha: {
+    password: {
         type: String,
         required: true
     },
-    bio: {
+    bio: [{
         type: String,
         required: true
+    }],
+    location: {
+        lat: {
+            type: Number,
+            required: true
+        },
+        long: {
+            type: Number,
+            required: true
+        }
     },
     likes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Dev'
+        ref: 'User'
     }],
     dislikes: [{
         type: Schema.Types.ObjectId,
-        ref: 'Dev'
+        ref: 'User'
     }]
 });
 

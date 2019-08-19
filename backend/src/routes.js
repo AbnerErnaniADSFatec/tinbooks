@@ -1,12 +1,11 @@
 const express = require('express');
 const routes = express.Router();
+const UserController = require('./controllers/UserController');
 
 routes.get('/', (req, res) => {
     return res.json({ message : 'Hello ' + req.query.name });
 });
 
-// routes.post('/devs', DevController.store);
-// routes.post('/devs/:devId/likes', LikeController.store);
-// routes.post('/devs/:devId/dislikes', DislikeController.store);
+routes.post('/users', UserController.store);
 
 module.exports = routes;
