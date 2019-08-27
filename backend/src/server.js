@@ -4,7 +4,7 @@ const cors = require('cors');
 const routes = require('./routes');
 const server = express();
 
-mongoose.connect('mongodb+srv://tinbooks:tinbooks152@cluster0-dcuer.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://tinbooks:tinbooks152@cluster0-dcuer.mongodb.net/tinbooks-db?retryWrites=true&w=majority', {
     useNewUrlParser: true
 });
 

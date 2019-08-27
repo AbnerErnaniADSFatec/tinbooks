@@ -1,7 +1,0 @@
-{
-  "name": "tinbooks",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}

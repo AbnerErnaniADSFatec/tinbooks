@@ -1,17 +1,8 @@
-# tinbooks
+# TinBooks
 Um tinder para leitores ávidos com o objetivo de ajudar você a conhecer pessoas com os mesmos interesses que você.
 
-### Install Ionic with NodeJS version greater than 10:
-```
-# npm install -g ionic
-```
+### NodeJS version > 8 is required, install global yarn with the following command:
 
-### Add node_modules:
 ```
-$ npm install
-```
-
-### Run ionic server:
-```
-$ ionic serve
+# npm install yarn -g
 ```
