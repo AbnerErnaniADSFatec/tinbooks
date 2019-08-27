@@ -2,6 +2,9 @@
     "name" : "Abner",
     "email" : "abiner.anjos@gmail.com",
     "password" : "123",
-    "bio" : ["terror"],
-    "location" : [-6124801.2015023, -1780692.0106836]
+    "bio" : ["terror", "suspense"],
+    "location" : {
+    	"lat": -6124801.2015023, 
+    	"long": -1780692.0106836
+	}
 }
