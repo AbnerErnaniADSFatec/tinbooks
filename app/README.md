@@ -17,10 +17,12 @@ $ export PATH=$PATH:$ANDROID_HOME/platform-tools
 $ /home/abner/Android/Sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-27" "build-tools;27.0.3"
 ```
 
-### Habilitando a depuração usb
-
+### Habilitando a depuração usb no sistema android
 ```
-$ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="1662", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android-usb.rules
+lsusb
+```
+```
+$ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="<your_phone_id>", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android-usb.rules
 ```
 ```
 $ adb devices
@@ -38,7 +40,7 @@ $ yarn install
 
 ### Baixando a versão do android
 ```
-$ sudo npm install @react-native-community/cli-platform-android@2.7.0
+$ sudo npm install @react-native-community/cli-platform-android@2.7.0 <android_version>
 ```
 
 ### Execução na plataforma android
