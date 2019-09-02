@@ -19,7 +19,7 @@ $ /home/abner/Android/Sdk/tools/bin/sdkmanager "platform-tools" "platforms;andro
 
 ### Habilitando a depuração usb no sistema android
 ```
-lsusb
+$ lsusb
 ```
 ```
 $ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="<your_phone_id>", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android-usb.rules
@@ -62,8 +62,8 @@ $ ./gradlew assembleRelease
 
 ### No caso de erros para construir o APK
 ```
-$ npm i jetifier
+$ sudo npm i jetifier
 ```
 ```
-$ npx jetify
+$ sudo npx jetify
 ```
