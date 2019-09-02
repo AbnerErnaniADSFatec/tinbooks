@@ -28,11 +28,10 @@ export default function Login({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    title: {
-        color: '#1e87f5',
-        align: 'center',
-        fontSize: '50px'
-    },
+    // title: {
+    //     color: '#1e87f5',
+    //     fontSize: '50px'
+    // },
     container: {
         flex: 1,
         backgroundColor: '#f5f5f5',

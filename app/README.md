@@ -1,5 +1,10 @@
 # React-native App no formato para mobile
 
+### Download the latest version
+```
+$ sudo npm install -g react-native-cli
+```
+
 ### Fazer o download do [Android SDK](https://developer.android.com/studio/#downloadshttps://developer.android.com/studio/#downloads) Configurar o ambiente para o desenvolvimento android
 ```
 $ export ANDROID_HOME=/home/abner/Android/Sdk
