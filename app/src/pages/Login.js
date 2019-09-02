@@ -1,7 +1,10 @@
 import React from 'react';
 import { KeyboardAvoidingView, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
-export default function Login() {
+export default function Login({ navigation }) {
+    function handleLogin() {
+        navigation.navigate('Main');
+    }
     return (
         <KeyboardAvoidingView style = {styles.container}>
             <Text style = {styles.title}>Tinbooks</Text>
@@ -13,9 +16,11 @@ export default function Login() {
             <TextInput
                 placeholder = "Senha"
                 placeholderTextColor = "#999999"
+                secureTextEntry = { true }
+                underlineColorAndroid = 'transparent'
                 style = {styles.input}
             />
-            <TouchableOpacity style = {styles.button}>
+            <TouchableOpacity onPress = { handleLogin } style = {styles.button}>
                 <Text style = {styles.buttonText}>Enviar</Text>
             </TouchableOpacity>
         </KeyboardAvoidingView>
@@ -23,6 +28,11 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
+    title: {
+        color: '#1e87f5',
+        align: 'center',
+        fontSize: '50px'
+    },
     container: {
         flex: 1,
         backgroundColor: '#f5f5f5',
@@ -43,7 +53,7 @@ const styles = StyleSheet.create({
     button: {
         height: 46,
         alignSelf: 'stretch',
-        backgroundColor: '#DF4723',
+        backgroundColor: '#2381df',
         borderRadius: 4,
         marginTop: 10,
         justifyContent: 'center',

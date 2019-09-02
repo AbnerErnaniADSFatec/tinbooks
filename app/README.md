@@ -52,3 +52,18 @@ $ sudo npm install @react-native-community/cli-platform-android@2.7.0 <android_v
 ```
 $ sudo yarn react-native run-android
 ```
+
+### Contruindo o APK
+
+Criar o arquivo para chaves com o debug, e executar este comando na pasta do projeto gradle android no app em react
+```
+$ ./gradlew assembleRelease
+```
+
+### No caso de erros para construir o APK
+```
+$ npm i jetifier
+```
+```
+$ npx jetify
+```
