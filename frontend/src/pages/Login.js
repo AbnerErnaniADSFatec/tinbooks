@@ -3,7 +3,8 @@ import './Login.css';
 import api from '../services/Api';
 
 export default function Login({ history }) {
-    const [email, passwd, setPasswd, setEmail] = useState('');
+    // const [email, passwd, setPasswd, setEmail] = useState('');
+    const [email, passwd] = useState('');
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -21,13 +22,13 @@ export default function Login({ history }) {
                 <h1>TinBooks</h1>
                 <input
                     placeholder = "e-mail"
-                    value = { email }
-                    onChange = { e => setEmail(e.target.value) }
+                    // value = { email }
+                    // onChange = { e => setEmail(e.target.value) }
                 />
                 <input
                     placeholder = "senha"
-                    value = { passwd }
-                    onChange = { e => setPasswd(e.target.value) }
+                    // value = { passwd }
+                    // onChange = { e => setPasswd(e.target.value) }
                 />
                 <button type = "submit">Enviar</button>
             </form>
