@@ -3726,7 +3726,7 @@ jest@^24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
-jetifier@^1.6.2:
+jetifier@^1.6.2, jetifier@^1.6.4:
   version "1.6.4"
   resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.4.tgz#6159db8e275d97980d26162897a0648b6d4a3222"
   integrity sha512-+f/4OLeqY8RAmXnonI1ffeY1DR8kMNJPhv5WMFehchf7U71cjMQVKkOz1n6asz6kfVoAqKNWJz1A/18i18AcXA==
@@ -4551,6 +4551,11 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
+
+navigation@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/navigation/-/navigation-5.2.0.tgz#33cb37e42e886cae4f5020651fec1b7dc77f87e4"
+  integrity sha512-/xV8TyfE1cA2od34C4Yi6ocVA41SmZwOw+fPKeWP1xancuP5GJpGw97RUr5JtF+fhRKg5kB96PubLSZYq+2ZzA==
 
 needle@^2.2.1:
   version "2.4.0"

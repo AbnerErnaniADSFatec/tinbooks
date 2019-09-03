@@ -1,12 +1,12 @@
 import React from 'react';
-import { KeyboardAvoidingView, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, Platform, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
 
 export default function Login({ navigation }) {
     function handleLogin() {
         navigation.navigate('Main');
     }
     return (
-        <KeyboardAvoidingView style = {styles.container}>
+        <KeyboardAvoidingView behavior = "padding" style = {styles.container} enabled = {Platform.OS == 'android'}>
             <Text style = {styles.title}>Tinbooks</Text>
             <TextInput
                 placeholder = "E-mail"
