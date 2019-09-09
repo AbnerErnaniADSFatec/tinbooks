@@ -32,7 +32,7 @@ export default function Main() {
 const styles = StyleSheet.create({
     // title: {
     //     color: '#1e87f5',
-    //     align: 'center',
+    //     text-align: 'center',
     //     fontSize: '50px'
     // },
     container: {
