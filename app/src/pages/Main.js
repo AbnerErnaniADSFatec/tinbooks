@@ -30,14 +30,14 @@ export default function Main() {
 }
 
 const styles = StyleSheet.create({
-    title: {
-        color: '#1e87f5',
-        align: 'center',
-        fontSize: '50px'
-    },
+    // title: {
+    //     color: '#1e87f5',
+    //     align: 'center',
+    //     fontSize: '50px'
+    // },
     container: {
         flex: 1,
-        backgroudColor: '#f5f5f5',
+        backgroundColor: '#f5f5f5',
         alignItems: 'center',
         justifyContent: 'space-between'
     },
@@ -57,14 +57,14 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        botton: 0
+        bottom: 0
     },
     avatar: {
         flex: 1,
         height: 300
     },
     footer: {
-        backgroudColor: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
         paddingHorizontal: 20,
         paddingVertical: 15
     },
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 25,
-        backgroudColor: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
         justifyContent: 'center',
         alignItems: 'center',
         marginHorizontal: 20,

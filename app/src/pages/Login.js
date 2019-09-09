@@ -1,5 +1,6 @@
 import React from 'react';
 import { KeyboardAvoidingView, Platform, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { navigation } from 'react-navigation';
 
 export default function Login({ navigation }) {
     function handleLogin() {
