@@ -4,7 +4,7 @@ import Main from './pages/Main';
 
 export default function App() {
   return (
-    <Login />
-    // <Main />
+    // <Login />
+    <Main />
   );
 }

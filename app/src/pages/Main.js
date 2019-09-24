@@ -20,10 +20,11 @@ const Main = ({ navigation }) => (
             </View>
             <View style = {styles.buttonsContainer}>
                 <TouchableOpacity style = {styles.button}>
-                    <Image src = {like}/>
+                    {/* <Image source = {like}/> */}
+                    <Image source = {{ uri: '../assets/likes.svg'}}/>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.button}>
-                    <Image src = {dislike}/>
+                    <Image source = {dislike}/>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     },
     avatar: {
         flex: 1,
-        height: 300
+        height: 100
     },
     footer: {
         backgroundColor: '#FFFFFF',
