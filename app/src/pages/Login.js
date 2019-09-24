@@ -1,12 +1,12 @@
 import React from 'react';
 import { KeyboardAvoidingView, Platform, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { navigation } from 'react-navigation';
 
-export default function Login({ navigation }) {
-    function handleLogin() {
-        navigation.navigate('Main');
-    }
-    return (
+// export default function Login({ navigation }) {
+const Login = ({ navigation }) => (//{
+    // function handleLogin() {
+    //    navigation.navigate('Main');
+    //}
+    // return (
         <KeyboardAvoidingView behavior = "padding" style = {styles.container} enabled = {Platform.OS == 'android'}>
             <Text style = {styles.title}>Tinbooks</Text>
             <TextInput
@@ -21,12 +21,20 @@ export default function Login({ navigation }) {
                 underlineColorAndroid = 'transparent'
                 style = {styles.input}
             />
-            <TouchableOpacity onPress = { handleLogin } style = {styles.button}>
+            {/* <TouchableOpacity onPress = { handleLogin } style = {styles.button}> */}
+            <TouchableOpacity onPress = { () => navigation.navigate('Main') } style = {styles.button}>
                 <Text style = {styles.buttonText}>Enviar</Text>
             </TouchableOpacity>
         </KeyboardAvoidingView>
-    );
+//    );
+//}
+);
+
+Login.navigationOptions = {
+    title: 'Login',
 }
+  
+export default Login;
 
 const styles = StyleSheet.create({
     // title: {
