@@ -4,9 +4,8 @@ import like from '../assets/like.svg';
 import dislike from '../assets/dislike.svg';
 import coruja from '../assets/corujinea.png';
 
-//export default function Main() {
-const Main = ({ navigation }) => (
-//    return(
+export default function Main() {
+    return(
         <SafeAreaView style = {styles.container}>
             <Text style = {styles.title}>Tinbooks</Text>
             <View style = {styles.cardsContainer}>
@@ -20,23 +19,15 @@ const Main = ({ navigation }) => (
             </View>
             <View style = {styles.buttonsContainer}>
                 <TouchableOpacity style = {styles.button}>
-                    {/* <Image source = {like}/> */}
-                    <Image source = {{ uri: '../assets/likes.svg'}}/>
+                    <Image source = {like}/>
                 </TouchableOpacity>
                 <TouchableOpacity style = {styles.button}>
                     <Image source = {dislike}/>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
-//    );
-//}
-);
-
-Main.navigationOptions = {
-    title: 'Main',
+    );
 }
-  
-export default Main;
 
 const styles = StyleSheet.create({
     // title: {

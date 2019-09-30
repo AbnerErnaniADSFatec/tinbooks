@@ -5,7 +5,7 @@ import Main from './pages/Main';
 
 export default createAppContainer(
     createStackNavigator({
-        Login: Login,
-        Main: Main
+        Login: { screen: Login },
+        Main: { screen: Main }
     })
 );
