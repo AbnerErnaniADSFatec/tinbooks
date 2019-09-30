@@ -14,4 +14,4 @@ module.exports = {
         await loggedUser.save();
         return res.json(loggedUser);
     }
-};
+}; 

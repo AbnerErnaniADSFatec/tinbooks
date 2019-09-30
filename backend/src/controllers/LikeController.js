@@ -8,7 +8,7 @@ module.exports = {
         const loggedUser = await User.findById(user);
         const targetUser = await User.findById(UserId);
         if (!targetUser) {
-            return res.status(400).json({ error : 'User not exists' });
+            return res.status(400).json({ error: 'User not exists' });
         }
         if (targetUser.likes.includes(loggedUser._id)) {
             console.log('DEU MATCH');
