@@ -65,7 +65,7 @@ Criar o arquivo para chaves com o debug, e executar este comando na pasta do pro
 $ ./gradlew assembleRelease
 ```
 
-### No caso de erros para construir o APK
+### No caso de erros para construir o APK (JS server carregando infinitamente)
 ```
 $ sudo npm i jetifier
 ```

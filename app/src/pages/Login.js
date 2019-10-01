@@ -1,13 +1,14 @@
 import React from 'react';
-import { KeyboardAvoidingView, Platform, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, Image, Platform, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import logo from '../assets/logo.png';
 
-export default function Login({ navigatition }) {
+export default function Login({ navigation }) {
     function handleLogin() {
-        navigatition.navigate('Main');
+        navigation.navigate('Main',{params: {}});
     }
     return (
-        <KeyboardAvoidingView behavior = "padding" style = {styles.container} enabled = {Platform.OS == 'android'}>
-            <Text style = {styles.title}>Tinbooks</Text>
+        <KeyboardAvoidingView behavior = "padding" style = {styles.container}>
+            <Image source={logo} />
             <TextInput
                 placeholder = "E-mail"
                 placeholderTextColor = "#999999"
@@ -20,7 +21,7 @@ export default function Login({ navigatition }) {
                 underlineColorAndroid = 'transparent'
                 style = {styles.input}
             />
-            <TouchableOpacity onPress = { handleLogin } style = {styles.button}>
+            <TouchableOpacity onPress = { handleLogin} style = {styles.button}>
                 <Text style = {styles.buttonText}>Enviar</Text>
             </TouchableOpacity>
         </KeyboardAvoidingView>
@@ -31,21 +32,20 @@ const styles = StyleSheet.create({
     title: {},
     container: {
         flex: 1,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#AEEDE2',
         justifyContent: 'center',
-        alignItems: 'center',
-        padding: 30
     },
     input: {
         height: 46,
-        alignSelf: 'stretch',
-        backgroundColor: '#FFFFFF',
+        width: 300,
+        alignSelf: 'center',
+        backgroundColor: '#FFF',
         borderWidth: 1,
-        borderColor: '#DDDDDD',
-        borderRadius: 4,
+        borderColor: '#ddd',
+        borderRadius: 20,
         marginTop: 20,
-        paddingHorizontal: 15
-    },
+        paddingHorizontal: 15,
+      },
     button: {
         height: 46,
         alignSelf: 'stretch',

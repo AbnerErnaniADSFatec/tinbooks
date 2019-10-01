@@ -1,10 +1,8 @@
-import React, {Fragment} from 'react';
-import Login from './pages/Login';
-import Main from './pages/Main';
+import React from 'react';
+import Routes from './routes';
 
 export default function App() {
   return (
-    <Login />
-    // <Main />
+    <Routes />
   );
 }
