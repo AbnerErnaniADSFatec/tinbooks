@@ -48,6 +48,22 @@ $ yarn install
 $ yarn add react-navigation react-native-gesture-handler react-native-reanimated
 ```
 
+### Adicionando o controle da comunicação com a API
+```
+$ yarn add axios
+```
+```
+$ sudo react-native axios
+```
+
+### Melhorando o ASYNC e AWAIT
+```
+$ yarn add @react-native-community/async-storage
+```
+```
+$ react-native @react-native-community/async-storage
+```
+
 ### Baixando a versão do android
 ```
 $ sudo npm install @react-native-community/cli-platform-android@2.7.0 <android_version>

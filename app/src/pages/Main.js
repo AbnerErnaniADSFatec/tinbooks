@@ -1,40 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import AsyncStorage from '@react-native-community/async-storage';
 import { SafeAreaView, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
 import like from '../assets/like.svg';
 import dislike from '../assets/dislike.svg';
 import coruja from '../assets/corujinea.png';
+import api from '../services/api';
 
-export default function Main() {
+export default function Main({ navigation }) {
+    const id = navigation.getParams('id');
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        async function loadUsers() {
+            const response = await api.get('/users', {
+                headers: {
+                    username: id
+                }
+            });
+            setUsers(response.data);
+        }
+        loadUsers();
+    }, [id]);
+    async function handleLike() {
+        const [user, ...rest] = users;
+        await api.post(`/users/${user._id}/likes`, null, {
+            headers: { user: id }
+        });
+        setUsers(rest);
+    }
+    async function handleDislike() {
+        const [user, ...rest] = users;
+        await api.post(`/users/${user._id}/dislikes`, null, {
+            headers: { user: id }
+        });
+        setUsers(rest);
+    }
+    async function handleLogout() {
+        await AsyncStorage.clear();
+        navigation.navigate('Login');
+    }
     return(
         <SafeAreaView style = {styles.container}>
-            <Text style = {styles.title}>Tinbooks</Text>
+            <TouchableOpacity onPress = {handleLogout}>
+                <Text style = {styles.title}>Tinbooks</Text>
+            </TouchableOpacity>
             <View style = {styles.cardsContainer}>
-                <View style = {styles.card}>
-                    <Image style = {styles.avatar} source = {coruja}/>
-                    <View styles = {styles.footer}>
-                        <Text styles = {styles.name}>Corujínea</Text>
-                        <Text styles = {styles.bio} numberOfLines = {3}>Ficção-Científica, Agatha Christie, Carl Sagan</Text>
-                    </View>
+                { users.length === 0 ? <Text style = {styles.empty}>Acabou :(</Text>
+                    : ( users.map( (user, index) => (
+                        <View key = { user._id } style = {[ styles.card, { zIndex: users.length - index }]}>
+                            <Image style = {styles.avatar} source = {{ uri: 'https://avatars1.githubusercontent.com/u/33687984?v=4' }}/>
+                            <View styles = {styles.footer}>
+                                <Text styles = {styles.name}>{ user.name }</Text>
+                                <Text styles = {styles.bio} numberOfLines = {3}>{ user.bio }</Text>
+                            </View>
+                        </View>
+                    )))
+                }
+            </View>
+            { users.length > 0 && (
+                <View style = {styles.buttonsContainer}>
+                    <TouchableOpacity style = {styles.button} onPress = {handleLike}>
+                        <Image source = {like}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style = {styles.button} onPress = {handleDislike}>
+                        <Image source = {dislike}/>
+                    </TouchableOpacity>
                 </View>
-            </View>
-            <View style = {styles.buttonsContainer}>
-                <TouchableOpacity style = {styles.button}>
-                    <Image source = {like}/>
-                </TouchableOpacity>
-                <TouchableOpacity style = {styles.button}>
-                    <Image source = {dislike}/>
-                </TouchableOpacity>
-            </View>
+            )}
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    // title: {
-    //     color: '#1e87f5',
-    //     text-align: 'center',
-    //     fontSize: '50px'
-    // },
     container: {
         flex: 1,
         backgroundColor: '#f5f5f5',
@@ -78,6 +114,12 @@ const styles = StyleSheet.create({
         color: '#999999',
         marginTop: 5,
         lineHeight: 18
+    },
+    empty: {
+        alignSelf: 'center',
+        color: '#999999',
+        fontSize: 24,
+        fontWeight: 'bold'
     },
     buttonsContainer: {
         flexDirection: 'row',

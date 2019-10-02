@@ -8,5 +8,10 @@ export default createAppContainer(
     createStackNavigator({
         Login,
         Main
+    },{
+        headerMode: 'none',
+        navigationOptions: {
+          headerVisible: false,
+        }
     })
 );
