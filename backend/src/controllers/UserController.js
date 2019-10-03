@@ -2,7 +2,8 @@ const axios = require('axios');
 const User = require('../models/User');
 module.exports = {
     async index(req, res) {
-        const { user } = req.headers;
+        /* const { user } = req.headers; */
+        const { user } = req.query;
         const loggedUser = await User.findById(user);
         const users = await User.find({
             $and: [

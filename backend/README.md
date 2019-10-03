@@ -1,17 +1,17 @@
 # tinbooks
 Um tinder para leitores ávidos com o objetivo de ajudar você a conhecer pessoas com os mesmos interesses que você.
 
-### Install Ionic with NodeJS version greater than 10:
-```
-# npm install -g ionic
-```
-
 ### Add node_modules:
 ```
 $ npm install
 ```
 
-### Run ionic server:
+### Run node server:
 ```
-$ ionic serve
+$ yarn books
+```
+
+### In case of errors:
+```
+$ echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
