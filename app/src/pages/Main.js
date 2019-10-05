@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import AsyncStorage from '@react-native-community/async-storage';
+import { AsyncStorage } from 'react-native';
+// import AsyncStorage from '@react-native-community/async-storage';
 import { SafeAreaView, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
 import like from '../assets/like.svg';
 import dislike from '../assets/dislike.svg';

@@ -61,7 +61,7 @@ $ sudo react-native axios
 $ yarn add @react-native-community/async-storage
 ```
 ```
-$ react-native @react-native-community/async-storage
+$ react-native link @react-native-community/async-storage
 ```
 
 ### Baixando a versão do android
