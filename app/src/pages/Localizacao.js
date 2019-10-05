@@ -1,15 +1,11 @@
 import React from 'react';
-import {KeyboardAvoidingView, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native';
+import {KeyboardAvoidingView, Platform, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 import logo from '../assets/logo.png';
 
 export default function Login({navigation}) {
   function handleLogin() {
     navigation.navigate('Main');
-  }
-
-  function handleCadastro() {
-    navigation.navigate('Cadastro');
   }
 
   return (
@@ -20,21 +16,8 @@ export default function Login({navigation}) {
       
 
       <Image source = {logo} />
-      <TextInput 
-      autoCapitalize = 'none'
-      autoCorrect = {false}
-      placeholder = "Login" 
-      style={styles.input} />
-      <TextInput
-        placeholder = "Senha"
-        secureTextEntry = {true}
-        style = {styles.input}
-      />
       <TouchableOpacity onPress={handleLogin} style = {styles.button}>
         <Text style = {styles.buttonText}>Confirmar</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleCadastro} style = {styles.button}>
-        <Text style = {styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
   );
