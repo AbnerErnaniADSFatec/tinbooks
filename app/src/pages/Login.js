@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { AsyncStorage } from 'react-native';
+// import { AsyncStorage } from 'react-native';
 // import AsyncStorage from '@react-native-community/async-storage';
 import { KeyboardAvoidingView, Image, Platform, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import api from '../services/api';
+// import api from '../services/api';
 import logo from '../assets/logo.png';
 
 export default function Login({ navigation }) {
     const [user, setUser] = useState('');
-    useEffect(() => {
-        AsyncStorage.getItem('user').then(user => {
-            if (user) {
-                navigation.navigate('Main', { user })
-            }
-        })
-    }, []);
+    // useEffect(() => {
+    //     AsyncStorage.getItem('user').then(user => {
+    //         if (user) {
+    //             navigation.navigate('Main', { user })
+    //         }
+    //     })
+    // }, []);
     async function handleLogin() {
-        const response = await api.post('/users', {
-            username: user
-        });
-        const { _id } = response.data;
-        await AsyncStorage.setItem('user', _id);
-        navigation.navigate('Main', { _id });
+        // const response = await api.post('/users', {
+        //     username: user
+        // });
+        // const { _id } = response.data;
+        // await AsyncStorage.setItem('user', _id);
+        navigation.navigate('Main'/* , { _id } */);
     }
     return (
         <KeyboardAvoidingView behavior="padding" style={styles.container}>

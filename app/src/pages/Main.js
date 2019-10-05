@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AsyncStorage } from 'react-native';
+// import { AsyncStorage } from 'react-native';
 // import AsyncStorage from '@react-native-community/async-storage';
 import { SafeAreaView, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
 import like from '../assets/like.svg';
@@ -11,32 +11,46 @@ export default function Main({ navigation }) {
     const id = navigation.getParams('id');
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        async function loadUsers() {
-            const response = await api.get('/users', {
-                headers: {
-                    username: id
-                }
-            });
-            setUsers(response.data);
-        }
-        loadUsers();
+        // async function loadUsers() {
+        //     const response = await api.get('/users', {
+        //         headers: {
+        //             username: id
+        //         }
+        //     });
+        //     setUsers(response.data);
+        // }
+        // loadUsers();
+        users = [
+            {
+                name : "Abner",
+                email : "abiner.anjos@gmail.com",
+                password : "123",
+                bio : ["terror", "suspense"],
+                location : {
+                    lat: -6124801.2015023, 
+                    long: -1780692.0106836
+                },
+                likes: [],
+                dislikes: []
+            }
+        ];
     }, [id]);
     async function handleLike() {
-        const [user, ...rest] = users;
-        await api.post(`/users/${user._id}/likes`, null, {
-            headers: { user: id }
-        });
-        setUsers(rest);
+        // const [user, ...rest] = users;
+        // await api.post(`/users/${user._id}/likes`, null, {
+        //     headers: { user: id }
+        // });
+        // setUsers(rest);
     }
     async function handleDislike() {
-        const [user, ...rest] = users;
-        await api.post(`/users/${user._id}/dislikes`, null, {
-            headers: { user: id }
-        });
-        setUsers(rest);
+        // const [user, ...rest] = users;
+        // await api.post(`/users/${user._id}/dislikes`, null, {
+        //     headers: { user: id }
+        // });
+        // setUsers(rest);
     }
     async function handleLogout() {
-        await AsyncStorage.clear();
+        // await AsyncStorage.clear();
         navigation.navigate('Login');
     }
     return(
