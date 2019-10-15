@@ -1,5 +1,8 @@
 {
-    "name" : "Abner",
+    "name" : "Abner Ernani dos Anjos",
+    "birth" : "23-03-1999",
+    "sex" : "masculino",
+    "username" : "binão",
     "email" : "abiner.anjos@gmail.com",
     "password" : "123",
     "bio" : ["terror", "suspense"],
@@ -7,6 +10,6 @@
     	"lat": -6124801.2015023, 
     	"long": -1780692.0106836
     },
-    "likes": [],
-    "dislikes": []
+    "likes": [""],
+    "dislikes": [""]
 }
