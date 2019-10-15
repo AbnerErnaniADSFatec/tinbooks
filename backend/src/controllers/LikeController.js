@@ -1,12 +1,12 @@
 const User = require('../models/User');
 module.exports = {
     async store(req, res) {
-        console.log(req.params.userId);
-        console.log(req.headers.user);
-        const { userId } = req.params;
-        const { user } = req.headers;
-        const loggedUser = await User.findById(user);
-        const targetUser = await User.findById(userId);
+        console.log(req.body.logged);
+        console.log(req.body.like);
+        const { logged } = req.body;
+        const { like } = req.body;
+        const loggedUser = await User.findById(logged);
+        const targetUser = await User.findById(like);
         if (!targetUser) {
             return res.status(400).json({ error: 'User not exists' });
         }
