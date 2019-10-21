@@ -96,5 +96,6 @@ Reiniciar a máquina
 
 ### No caso de erros para construir o APK ('deprecated gradle features were used in this build')
 ```
-Assinatura do aplicativo já instalado no celular diferente da atual sendo usado no build, desinstalar a versão do App no celular e rexecutar
+Assinatura do aplicativo já instalado no celular diferente da atual sendo usada no build,
+desinstalar a versão do App no celular e reinstalar
 ```
