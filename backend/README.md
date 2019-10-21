@@ -11,7 +11,7 @@ $ npm install
 $ yarn books
 ```
 
-### In case of errors:
+### In case of errors ('ENOSPC: System limit for number of file watchers reached'):
 ```
 $ echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
