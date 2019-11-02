@@ -5,7 +5,14 @@
 $ sudo npm install -g react-native-cli
 ```
 
-### Fazer o download do [Android SDK](https://developer.android.com/studio/#downloadshttps://developer.android.com/studio/#downloads) Configurar o ambiente para o desenvolvimento android
+### Fazer o download do [Android SDK](https://developer.android.com/studio/#downloadshttps://developer.android.com/studio/#downloads) 
+
+#### Instalando as ferramentas
+```
+$ /home/abner/Android/Sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-27" "build-tools;27.0.3"
+```
+
+#### Configurar o ambiente para o desenvolvimento android
 ```
 $ export ANDROID_HOME=/home/abner/Android/Sdk
 ```
@@ -14,12 +21,6 @@ $ export PATH=$PATH:$ANDROID_HOME/tools
 ```
 ```
 $ export PATH=$PATH:$ANDROID_HOME/platform-tools
-```
-
-### Instalando as ferramentas
-
-```
-$ /home/abner/Android/Sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-27" "build-tools;27.0.3"
 ```
 
 ### Habilitando a depuração usb no sistema android
