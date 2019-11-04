@@ -14,41 +14,40 @@ export default function Cadastro({ navigation }) {
     return (
         <ScrollView
             behavior='padding'
-            enable={Platform.OS == 'ios'}
-            style={styles.container}>
+            enable = {Platform.OS == 'ios'}
+            style = {styles.container}>
+            <Image source = {logo} />
 
-
-            <Image source={logo} />
             <TextInput
                 placeholder="Nome Completo "
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Data de Nascimento"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Sexo"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Nome de usuário "
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="E-mail"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Senha"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Confirmar Senha"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Genêros de Interesse"
-                style={styles.input} />
+                style = {styles.input} />
 
-            <TouchableOpacity onPress={handleConfirma} style={styles.button}>
-                <Text style={styles.buttonText}>Confirmar</Text>
+            <TouchableOpacity onPress = {handleConfirma} style = {styles.button}>
+                <Text style = {styles.buttonText}>Confirmar</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPree={handleSair} style={styles.button}>
-                <Text style={styles.buttonText}>Sair</Text>
+            <TouchableOpacity onPree = {handleSair} style = {styles.button}>
+                <Text style = {styles.buttonText}>Sair</Text>
             </TouchableOpacity>
         </ScrollView>
     );

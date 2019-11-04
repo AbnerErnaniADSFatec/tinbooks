@@ -21,6 +21,7 @@ export default function Main({ navigation }) {
   function handleSair() {
     navigation.navigate('Login');
   }
+
   return (
     <SafeAreaView
       style={styles.container}>

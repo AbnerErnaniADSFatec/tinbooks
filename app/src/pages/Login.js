@@ -1,10 +1,12 @@
 import React from 'react';
 import {KeyboardAvoidingView, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native';
-
+import api from '../services/api';
 import logo from '../assets/logo.png';
 
 export default function Login({navigation}) {
   function handleLogin() {
+    const id = "";
+    const response = api.get('/users?user=' + id);
     navigation.navigate('Main');
   }
 
@@ -17,23 +19,22 @@ export default function Login({navigation}) {
       behavior = 'padding'
       enable = {Platform.OS == 'ios'}
       style = {styles.container}>
-      
-
       <Image source = {logo} />
       <TextInput 
-      autoCapitalize = 'none'
-      autoCorrect = {false}
-      placeholder = "Login" 
-      style={styles.input} />
+        autoCapitalize = 'none'
+        autoCorrect = {false}
+        placeholder = "Login" 
+        style = {styles.input}
+      />
       <TextInput
         placeholder = "Senha"
         secureTextEntry = {true}
         style = {styles.input}
       />
-      <TouchableOpacity onPress={handleLogin} style = {styles.button}>
+      <TouchableOpacity onPress = {handleLogin} style = {styles.button}>
         <Text style = {styles.buttonText}>Confirmar</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleCadastro} style = {styles.button}>
+      <TouchableOpacity onPress = {handleCadastro} style = {styles.button}>
         <Text style = {styles.buttonText}>Cadastrar</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>

@@ -11,8 +11,14 @@ module.exports = {
                 { _id: { $nin: loggedUser.dislikes } }
             ]
         });
-        console.log(loggedUser.name)
+        console.log(loggedUser.name);
         return res.json(users);
+    },
+    async find(req, res) {
+        const { user } = req.query;
+        const loggedUser = await User.findById(user);
+        console.log(loggedUser.name);
+        return res.json(loggedUser);
     },
     async store(req, res) {
         const { name, birth, sex, username, email, password, bio, location } = req.body;

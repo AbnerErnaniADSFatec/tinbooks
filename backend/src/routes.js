@@ -9,6 +9,7 @@ routes.get('/', (req, res) => {
 });
 
 routes.get('/users', UserController.index);
+routes.get('/find', UserController.find);
 routes.post('/users', UserController.store);
 routes.post('/users/likes', LikeController.store);
 routes.post('/users/dislikes', DislikeController.store);
