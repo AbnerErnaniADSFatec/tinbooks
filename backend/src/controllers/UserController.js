@@ -16,7 +16,7 @@ module.exports = {
     },
     async find(req, res) {
         const { user } = req.query;
-        const loggedUser = await User.findById(user);
+        const loggedUser = await User.findOne({ username : user});
         console.log(loggedUser.name);
         return res.json(loggedUser);
     },

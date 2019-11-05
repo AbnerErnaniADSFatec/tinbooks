@@ -4,10 +4,23 @@ import api from '../services/api';
 import logo from '../assets/logo.png';
 
 export default function Login({navigation}) {
-  function handleLogin() {
-    const id = "";
-    const response = api.get('/users?user=' + id);
-    navigation.navigate('Main');
+  state = {
+    username: '',
+    password: ''
+  }
+
+  handleUsername = (text) => {
+    this.setState({ username: text })
+  }
+
+  handlePassword = (text) => {
+    this.setState({ password: text })
+  }
+
+  handleLogin = (username, password) => {
+    const response = api.get('/find?user=' + username);
+    if (response) {}
+    navigation.navigate('Main', { response });
   }
 
   function handleCadastro() {
@@ -23,15 +36,19 @@ export default function Login({navigation}) {
       <TextInput 
         autoCapitalize = 'none'
         autoCorrect = {false}
-        placeholder = "Login" 
+        placeholder = "Login"
+        onChangeText = { this.handleUsername }
         style = {styles.input}
       />
       <TextInput
         placeholder = "Senha"
         secureTextEntry = {true}
+        onChangeText = { this.handlePassword }
         style = {styles.input}
       />
-      <TouchableOpacity onPress = {handleLogin} style = {styles.button}>
+      <TouchableOpacity onPress = {
+        () => this.handleLogin(this.state.email, this.state.password)
+      }> style = {styles.button}>
         <Text style = {styles.buttonText}>Confirmar</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress = {handleCadastro} style = {styles.button}>
