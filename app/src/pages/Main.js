@@ -18,6 +18,10 @@ export default function Main({ navigation }) {
     navigation.navigate('Livros');
   }
 
+  function handleLocation() {
+    navigation.navigate('Localizacao');
+  }
+
   function handleSair() {
     navigation.navigate('Login');
   }
@@ -39,6 +43,9 @@ export default function Main({ navigation }) {
               <Image style={styles.foto2} source={malala} />
               <Image style={styles.foto2} source={stephen} />
             </ScrollView>
+            <TouchableOpacity onPress={handleLocation} style={styles.button}>
+              <Text style={styles.buttonText}>Localizar</Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={handleLivro} style={styles.button}>
               <Text style={styles.buttonText}>Cadastrar Livros</Text>
             </TouchableOpacity>

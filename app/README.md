@@ -100,3 +100,23 @@ Reiniciar a máquina
 Assinatura do aplicativo já instalado no celular diferente da atual sendo usada no build,
 desinstalar a versão do App no celular e reinstalar
 ```
+### Funcionamento do Google Maps pelo [artigo explicativo](https://medium.com/nerdzao/utilizando-rotas-com-a-google-maps-api-no-react-native-69a05a434ab5)
+
+```
+$ sudo yarn add react-native-maps
+```
+```
+$ react-native link react-native-maps
+```
+
+### Pacotes Adicionais para o funcionamento das rotas
+
+```
+$ sudo yarn add react-native-maps-directions
+```
+```
+$ sudo yarn add react-native-geocoding
+```
+```
+$ sudo yarn add react-native-google-maps-directions
+```

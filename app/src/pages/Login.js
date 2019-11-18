@@ -19,7 +19,7 @@ export default function Login({navigation}) {
 
   handleLogin = (username, password) => {
     const response = api.get('/find?user=' + username);
-    if (response) {}
+    // if (response) {}
     navigation.navigate('Main', { response });
   }
 
@@ -48,7 +48,8 @@ export default function Login({navigation}) {
       />
       <TouchableOpacity onPress = {
         () => this.handleLogin(this.state.email, this.state.password)
-      }> style = {styles.button}>
+      } style = {styles.button}
+      >
         <Text style = {styles.buttonText}>Confirmar</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress = {handleCadastro} style = {styles.button}>

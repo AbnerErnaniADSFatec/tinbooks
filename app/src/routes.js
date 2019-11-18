@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Main from './pages/Main';
 import Cadastro from './pages/Cadastro';
 import Livros from './pages/Livros';
+import Localizacao from './pages/Localizacao';
 
 export default createAppContainer(
     createSwitchNavigator({
@@ -11,6 +12,7 @@ export default createAppContainer(
         Main,
         Cadastro,
         Livros,
+        Localizacao
     })
 
 );
