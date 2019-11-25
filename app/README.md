@@ -5,11 +5,11 @@
 $ sudo npm install -g react-native-cli
 ```
 
-### Fazer o download do [Android SDK](https://developer.android.com/studio/#downloadshttps://developer.android.com/studio/#downloads) 
+### Fazer o download do [Android SDK](https://developer.android.com/studio/#downloadshttps://developer.android.com/studio/#downloads) e salvar a pasta '/sdk' em 'android/sdk' na pasta root do projeto apenas para Microsoft Windows
 
 #### Instalando as ferramentas
 ```
-$ /home/abner/Android/Sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-27" "build-tools;27.0.3"
+$ Android/Sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-27" "build-tools;27.0.3"
 ```
 
 #### Configurar o ambiente para o desenvolvimento android

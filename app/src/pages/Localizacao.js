@@ -6,7 +6,7 @@ import GetDirections from 'react-native-google-maps-directions';
 import GeoCoder from 'react-native-geocoding';
 import logo from '../assets/logo.png';
 
-const GOOGLE_MAPS_APIKEY = 'AIzaSyBUluBnkOM0SqCU9FkxScr3UYFl8gDevWI';
+const GOOGLE_MAPS_APIKEY = 'AIzaSyBg8ieiVArwYzNHN4QdF1z3IfdfgkHrZpM';
 const backgroundColor = '#007556';
 const { height, width } = Dimensions.get('window');
 
