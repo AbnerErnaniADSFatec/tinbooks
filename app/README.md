@@ -7,7 +7,7 @@
 #### 4. Copiar a pasta 'SDK' para a pasta android do root do projeto;
 #### 5. Gerar a chave de assinatura para instalar o aplicativo;
 #### 1. Baixar os módulos do NodeJS;
-#### 1. Instalar o aplicativo no celular via USB com o ```comando run-android```;
+#### 1. Instalar o aplicativo no celular via USB com o comando ```react-native run-android```;
 
 ### Download the latest version
 ```
