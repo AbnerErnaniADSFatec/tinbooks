@@ -1,11 +1,10 @@
 import React from 'react';
 import { ScrollView, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 import logo from '../assets/logo.png';
-import Calendar from 'react-native-calendario';
 
 export default function Cadastro({ navigation }) {
     function handleConfirma() {
-        navigation.navigate('Main');
+        navigation.navigate('Login');
     }
 
     function handleSair() {
@@ -15,39 +14,40 @@ export default function Cadastro({ navigation }) {
     return (
         <ScrollView
             behavior='padding'
-            enable={Platform.OS == 'ios'}
-            style={styles.container}>
-            <Image source={logo} />
+            enable = {Platform.OS == 'ios'}
+            style = {styles.container}>
+            <Image source = {logo} />
+
             <TextInput
                 placeholder="Nome Completo "
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Data de Nascimento"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Sexo"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Nome de usuário "
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="E-mail"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Senha"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Confirmar Senha"
-                style={styles.input} />
+                style = {styles.input} />
             <TextInput
                 placeholder="Genêros de Interesse"
-                style={styles.input} />
+                style = {styles.input} />
 
-            <TouchableOpacity onPress={handleConfirma} style={styles.button}>
-                <Text style={styles.buttonText}>Confirmar</Text>
+            <TouchableOpacity onPress = {handleConfirma} style = {styles.button}>
+                <Text style = {styles.buttonText}>Confirmar</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPree={handleSair} style={styles.button}>
-                <Text style={styles.buttonText}>Sair</Text>
+            <TouchableOpacity onPree = {handleSair} style = {styles.button}>
+                <Text style = {styles.buttonText}>Sair</Text>
             </TouchableOpacity>
         </ScrollView>
     );
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         height: 46,
         width: 300,
         alignSelf: 'center',
-        backgroundColor: '#5DBCD2',
+        backgroundColor: '#b3c0d0',
         borderRadius: 20,
         marginTop: 20,
         justifyContent: 'center',

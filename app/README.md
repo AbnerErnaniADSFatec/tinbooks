@@ -9,12 +9,12 @@ $ sudo npm install -g react-native-cli
 
 #### Instalando as ferramentas
 ```
-$ Android/Sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-27" "build-tools;27.0.3"
+$ android/sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-27" "build-tools;27.0.3"
 ```
 
 #### Configurar o ambiente para o desenvolvimento android
 ```
-$ export ANDROID_HOME=/home/abner/Android/Sdk
+$ export ANDROID_HOME=/home/abner/android/sdk
 ```
 ```
 $ export PATH=$PATH:$ANDROID_HOME/tools
