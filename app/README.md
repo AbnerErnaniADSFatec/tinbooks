@@ -1,5 +1,14 @@
 # React-native App no formato para mobile
 
+## Passos numerados para a instalação do app via USB
+#### 1. Baixar o SDK;
+#### 2. Instalar as ferramentas do SDK;
+#### 3. Configurar as variáveis de ambiente do sistema operacional;
+#### 4. Copiar a pasta 'SDK' para a pasta android do root do projeto;
+#### 5. Gerar a chave de assinatura para instalar o aplicativo;
+#### 1. Baixar os módulos do NodeJS;
+#### 1. Instalar o aplicativo no celular via USB com o ```comando run-android```;
+
 ### Download the latest version
 ```
 $ sudo npm install -g react-native-cli
