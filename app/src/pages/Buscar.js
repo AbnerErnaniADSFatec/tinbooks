@@ -9,14 +9,6 @@ import like from '../assets/like.png';
 import dislike from '../assets/dislike.png';
 
 export default function Main({ navigation }) {
-  var likes = [];
-  var dislikes = [];
-  var selected = {
-    id: null,
-    image: null,
-    title: null,
-    bio: null
-  };
   var list = [
     {
       id: 4,
@@ -43,38 +35,75 @@ export default function Main({ navigation }) {
       bio: 'Eu sou Malala é a história de uma família exilada pelo terrorismo global, da luta pelo direito à educação feminina e dos obstáculos à valorização da mulher em uma sociedade que privilegia filhos homens. Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação. Mas em 9 de outubro de 2012, uma terça-feira, ela quase pagou o preço com a vida.'
     }
   ];
+  var selected = {
+    id: null,
+    image: null,
+    title: null,
+    bio: null
+  };
+  var verify = [];
+  var likes = [];
+  var dislikes = [];
 
   try {
     likes = navigation.state.params.like;
-  } catch (e) {}
+  } catch (e) { }
   try {
     dislikes = navigation.state.params.dislike;
-  } catch (e) {}
+  } catch (e) { }
 
-  if (likes.length === 0) {
-    likes.push(list[0]);
-    selected = list[0];
-  } else {
-    for (var i = 0; i < likes.length; i++) {
-      if (likes[i].id !==  list[i].id) {
-        selected = list[i]
-        break;
-      }
-    }
+  for (var i = 0; i < likes.length; i++) {
+    list.shift();
   }
+
+  for (var i = 0; i < dislikes.length; i++) {
+    list.shift();
+  }
+
+  try {
+    selected = list[0];
+  } catch(e) {}
 
   function handleLike() {
     likes.push(selected);
-    navigation.navigate('Main', { likes_books : likes });
+    navigation.navigate('Main', { like: likes, dislike: dislikes });
   }
 
   function handleDislike() {
     dislikes.push(selected);
-    navigation.navigate('Main', { dislikes_books : dislikes });
+    navigation.navigate('Main', { like: likes, dislike: dislikes });
   }
 
   function handleSair() {
     navigation.navigate('Login');
+  }
+
+  try {
+    verify.push(
+      <View>
+        <Image style={styles.foto} source={selected.image} />
+        <View style={styles.footer}>
+          <Text style={styles.name}>{selected.title}</Text>
+          <Text style={styles.bio}>{selected.bio}</Text>
+        </View>
+        <View style={styles.like}>
+          <ScrollView horizontal={true}>
+            <TouchableOpacity onPress={handleDislike} style={styles.button2}>
+              <Image style={styles.botao} source={dislike} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleLike} style={styles.button2}>
+              <Image style={styles.botao} source={like} />
+            </TouchableOpacity>
+          </ScrollView>
+        </View>
+      </View>
+    );
+  } catch(e) {
+    verify.push(
+      <View style={styles.footer}>
+        <Text style={styles.name}>Acabou!</Text>
+      </View>
+    );
   }
 
   return (
@@ -83,21 +112,7 @@ export default function Main({ navigation }) {
       <ScrollView>
         <View style={styles.cardContainer}>
           <View style={styles.card}>
-            <Image style={styles.foto} source={ selected.image } />
-            <View style={styles.footer}>
-              <Text style={styles.name}>{ selected.title }</Text>
-              <Text style={styles.bio}>{ selected.bio }</Text>
-            </View>
-            <View style={styles.like}>
-            <ScrollView horizontal={true}>
-            <TouchableOpacity onPress={handleDislike} style={styles.button2}>
-                <Image style={styles.botao} source={dislike} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleLike} style={styles.button2}>
-                <Image style={styles.botao} source={like} />
-            </TouchableOpacity>
-            </ScrollView>
-            </View>
+            {verify}
             <TouchableOpacity onPress={handleSair} style={styles.button}>
               <Text style={styles.buttonText}>Sair</Text>
             </TouchableOpacity>
@@ -181,7 +196,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  like:{
+  like: {
     alignItems: 'center',
   }
 });

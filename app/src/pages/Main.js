@@ -19,10 +19,10 @@ export default function Main({ navigation }) {
   var likes = [];
   var dislikes = [];
   try {
-    likes = navigation.state.params.likes_books;
+    likes = navigation.state.params.like;
   } catch (e) {}
   try {
-    dislikes = navigation.state.params.dislikes_books;
+    dislikes = navigation.state.params.dislike;
   } catch (e) {}
 
   var books_likes = [];
