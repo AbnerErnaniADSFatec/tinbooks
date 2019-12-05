@@ -14,6 +14,41 @@ import lisa from '../assets/lisakleypas.jpg';
 import michelle from '../assets/michelleobama.jpg';
 
 export default function Main({ navigation }) {
+  var images_cad = [julia, joe, tolkien, lisa, michelle, stephen, nora, malala];
+  var images_rec = [tolkien, stephen, julia, joe, lisa, michelle, nora, malala];
+  var likes = [];
+  var dislikes = [];
+  try {
+    likes = navigation.state.params.likes_books;
+  } catch (e) {}
+  try {
+    dislikes = navigation.state.params.dislikes_books;
+  } catch (e) {}
+
+  var books_likes = [];
+  for(let i = 0; i < likes.length; i++){
+    try {
+      books_likes.push(<Image style={styles.foto2} source={ likes[i].image } />);
+    } catch (e) {}
+  }
+
+  var books_rec = [];
+  for(let i = 0; i < images_rec.length; i++){
+		books_rec.push(<Image style={styles.foto2} source={ images_rec[i] } />);
+  }
+
+  var books_cad = [];
+  for(let i = 0; i < images_cad.length; i++){
+		books_cad.push(<Image style={styles.foto2} source={ images_cad[i] } />);
+  }
+
+  var verify = [];
+  if (likes.length !== 0) {
+    verify.push(<Text style={styles.livros}>Favoritos:</Text>);
+  } else {
+    verify.push(<Text style={styles.livros}>Sem favoritos</Text>);
+  }
+
   function handleLivro() {
     navigation.navigate('Livros');
   }
@@ -23,7 +58,7 @@ export default function Main({ navigation }) {
   }
 
   function handleBuscar() {
-    navigation.navigate('Buscar');
+    navigation.navigate('Buscar', { like : likes, dislike : dislikes });
   }
 
   return (
@@ -38,35 +73,23 @@ export default function Main({ navigation }) {
               <Text style={styles.bio}>Adoro livros de Romances, Biografias e Suspenses</Text>
               <Text style={styles.livros}>Livros cadastrados:</Text>
               <ScrollView horizontal={true}>
-                <Image style={styles.foto2} source={nora} />
-                <Image style={styles.foto2} source={john} />
-                <Image style={styles.foto2} source={meg} />
-                <Image style={styles.foto2} source={malala} />
-                <Image style={styles.foto2} source={stephen} />
+                { books_cad }
               </ScrollView>
-              <TouchableOpacity onPress={handleLivro} style={styles.button}>
-                <Text style={styles.buttonText}>Cadastrar Livros</Text>
-              </TouchableOpacity>
             </View>
             <Text style={styles.livros}>Recomendados:</Text>
             <ScrollView horizontal={true}>
-              <Image style={styles.foto2} source={julia} />
-              <Image style={styles.foto2} source={joe} />
-              <Image style={styles.foto2} source={tolkien} />
-              <Image style={styles.foto2} source={lisa} />
-              <Image style={styles.foto2} source={michelle} />
+              { books_rec }
             </ScrollView>
+            { verify }
+            <ScrollView horizontal={true}>
+              { books_likes }
+            </ScrollView>
+            <TouchableOpacity onPress={handleLivro} style={styles.button}>
+              <Text style={styles.buttonText}>Cadastrar Livros</Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={handleBuscar} style={styles.button}>
               <Text style={styles.buttonText}>Buscar Livros</Text>
             </TouchableOpacity>
-            <Text style={styles.livros}>Favoritos:</Text>
-            <ScrollView horizontal={true}>
-              <Image style={styles.foto2} source={julia} />
-              <Image style={styles.foto2} source={joe} />
-              <Image style={styles.foto2} source={tolkien} />
-              <Image style={styles.foto2} source={lisa} />
-              <Image style={styles.foto2} source={michelle} />
-            </ScrollView>
             <TouchableOpacity onPress={handleSair} style={styles.button}>
               <Text style={styles.buttonText}>Sair</Text>
             </TouchableOpacity>

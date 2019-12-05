@@ -35,32 +35,18 @@ export default function Login({navigation}) {
       behavior = 'padding'
       enable = {Platform.OS == 'ios'}
       style = {styles.container}>
-      
-      {/* <MapView
-        style={styles.map}
-        loadingEnabled={true}
-        region={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121,
-        }}
-      ></MapView> */}
 
       <MapView style={styles.map} initialRegion={{
-       latitude:-6.270565,
-       longitude:106.759550,
-       latitudeDelta: 1,
-       longitudeDelta: 1
+       latitude: -6.270565,
+       longitude: 106.759550,
+       latitudeDelta: 0.015,
+       longitudeDelta: 0.0121,
       }}>
-  
-      {!!this.state.latitude && !!this.state.longitude && <MapView.Marker
+        {!!this.state.latitude && !!this.state.longitude && <MapView.Marker
          coordinate={{"latitude":this.state.latitude,"longitude":this.state.longitude}}
          title={"Your Location"}
-       />}
-
+        />}
       </MapView>
-
       <TouchableOpacity onPress={handleLogin} style = {styles.button}>
         <Text style = {styles.buttonText}>Ativar Localização</Text>
       </TouchableOpacity>
@@ -70,11 +56,18 @@ export default function Login({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#AEEDE2',
-    justifyContent: 'center',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
-
+  map: {
+    flex: 1,
+    ...StyleSheet.absoluteFillObject
+  },
   input: {
     height: 46,
     width: 300,
@@ -97,18 +90,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   buttonText: {
     color: '#FFF',
     fontWeight: 'bold',
     fontSize: 20,
-  },
-
-  map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
   }
 });
