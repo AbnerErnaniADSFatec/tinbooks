@@ -4,19 +4,20 @@ import Geolocation from '@react-native-community/geolocation';
 
 export default function Login({navigation}) {
   var u = navigation.state.params.user;
+  var users = navigation.state.params.saved_users;
   var list_books = navigation.state.params.books;
   var error = null;
 
   function handleLogin() {
     Geolocation.getCurrentPosition(
-      (position) => {
-        u.location.lat = position.coords.latitude;
-        u.location.long =  position.coords.longitude;
+      async (position) => {
+        u.location.lat = await position.coords.latitude;
+        u.location.long =  await position.coords.longitude;
       },
       (error) => error = error.message,
       { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
     );
-    navigation.navigate('Main', { user: u, books: list_books });
+    navigation.navigate('Main', { user: u, saved_users: users, books: list_books });
   }
 
   return (

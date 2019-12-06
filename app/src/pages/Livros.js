@@ -1,21 +1,43 @@
 import React from 'react';
 import { ScrollView, View, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import book_img from '../assets/book.png';
 
 export default function Livros({ navigation }) {
     var u = navigation.state.params.user;
+    var users = navigation.state.params.saved_users;
+    var list_books = navigation.state.params.books;
+    var book = [
+        {
+            id: null,
+            image: book_img,
+            title: '',
+            bio: ''
+        }
+    ];
+
+    handleTitle = (text) => {
+        book.title = text;
+    }
+
+    handleBio = (text) => {
+        book.bio = text;
+    }
+
     function handleConfirma() {
-        navigation.navigate('Main', { user: u });
+        book.id = (list_books[(list_books.length - 1)].id + 1);
+        list_books.push(book);
+        navigation.navigate('Main', { user: u, saved_users: users, books: list_books });
     }
+
     function handleSair() {
-        navigation.navigate('Login');
+        navigation.navigate('Login', { user: u, saved_users: users, books: list_books });
     }
+
     return (
         <ScrollView
             behavior='padding'
             enable={Platform.OS == 'ios'}
             style={styles.container}>
-
-
             <TextInput
                 placeholder="Nome do Autor"
                 style={styles.input} />
@@ -24,10 +46,12 @@ export default function Livros({ navigation }) {
                 style={styles.input} />
             <TextInput
                 placeholder="Título"
-                style={styles.input} />
+                style={styles.input}
+                onChangeText = { handleTitle } />
             <TextInput
-                placeholder="Subtítulo"
-                style={styles.input} />
+                placeholder="Sinopse"
+                style={styles.input}
+                onChangeText = { handleBio } />
             <TextInput
                 placeholder="Série"
                 style={styles.input} />
@@ -49,7 +73,6 @@ export default function Livros({ navigation }) {
             <TextInput
                 placeholder="Genêro"
                 style={styles.input} />
-
             <TouchableOpacity onPress={handleConfirma} style={styles.button}>
                 <Text style={styles.buttonText}>Confirmar</Text>
             </TouchableOpacity>

@@ -6,10 +6,11 @@ import dislike from '../assets/dislike.png';
 
 export default function Main({ navigation }) {
   var u = navigation.state.params.user;
+  var users = navigation.state.params.saved_users;
   var saved = navigation.state.params.books;
   var id_likes = [];
   for (var i = 0; i < u.likes.length; i++) { id_likes.push(u.likes[i].id); }
-  var id_likes = [];
+  var id_dislikes = [];
   for (var i = 0; i < u.dislikes.length; i++) { id_dislikes.push(u.dislikes[i].id); }
   var ids = id_likes.concat(id_dislikes);
   function verifyContains(item, array) {
@@ -62,25 +63,35 @@ export default function Main({ navigation }) {
   }
 
   function handleLike() {
-    if (!verifyContains(selected.id, ids)) {
+    if ( !verifyContains(selected.id, id_likes) && !verifyContains(selected.id, id_dislikes) ) {
+      u.likes.push(selected);
+    } else if (verifyContains(selected.id, id_dislikes)) {
+      u.dislikes = u.dislikes.filter((data) => {
+          return data.id != selected.id;
+      });
       u.likes.push(selected);
     }
     navigation.navigate('Main', { user: u, books: saved });
   }
 
   function handleDislike() {
-    if (!verifyContains(selected.id, ids)) {
-      u.dislikes.push(selected);
+    if ( !verifyContains(selected.id, id_dislikes) && !verifyContains(selected.id, id_likes) ) {
+      dislikes.push(selected);
+    } else if (verifyContains(selected.id, id_likes)) {
+      u.likes = u.likes.filter((data) => {
+          return data.id != selected.id;
+      });
+      dislikes.push(selected);
     }
-    navigation.navigate('Main', { user: u, books: saved });
+    navigation.navigate('Main', { user: u, saved_users: users, books: list_books });
   }
 
   function handleVoltar() {
-    navigation.navigate('Main', { user: u, books: saved });
+    navigation.navigate('Main', { user: u, saved_users: users, books: list_books });
   }
 
   function handleSair() {
-    navigation.navigate('Login');
+    navigation.navigate('Login', { user: u, saved_users: users, books: list_books });
   }
 
   return (

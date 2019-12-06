@@ -3,6 +3,7 @@ import { SafeAreaView, View, Text, StyleSheet, Image, ScrollView, TouchableOpaci
 
 export default function Main({ navigation }) {
   var u = navigation.state.params.user;
+  var users = navigation.state.params.saved_users;
   var list_books = navigation.state.params.books;
   var images_cad = list_books;
   function shuffle(array) {
@@ -58,15 +59,15 @@ export default function Main({ navigation }) {
   }
 
   function handleLivro() {
-    navigation.navigate('Livros', { user: u, books: list_books });
+    navigation.navigate('Livros', { user: u, saved_users: users, books: list_books });
   }
 
   function handleBuscar() {
-    navigation.navigate('Buscar', { user: u, books: list_books });
+    navigation.navigate('Buscar', { user: u, saved_users: users, books: list_books });
   }
 
   function setBook(book) {
-    navigation.navigate('Buscar', { user: u, books: list_books, select: book });
+    navigation.navigate('Buscar', { user: u, saved_users: users, books: list_books, select: book });
   }
 
   return (
