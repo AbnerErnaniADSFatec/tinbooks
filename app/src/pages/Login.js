@@ -11,52 +11,6 @@ import tabata from '../assets/leitora.jpeg';
 
 export default function Login({navigation}) {
   try {
-    var users = navigation.state.params.saved_users;
-  } catch(e) {
-    var users = [
-      {
-        name: 'Abner Ernani dos Anjos',
-        image: abner,
-        username: 'binao',
-        bio: 'Terror e Suspense',
-        password: '123',
-        location: {
-          lat: null,
-          long: null
-        },
-        likes: [
-          {
-            id: 3,
-            image: stephen,
-            title: 'IT - A coisa',
-            bio: 'Um grupo de crianças se une para investigar o misterioso desaparecimento de vários jovens em sua cidade. Eles descobrem que o culpado é Pennywise, um palhaço cruel que se alimenta de seus medos e cuja violência teve origem há vários séculos.'
-          }
-        ],
-        dislikes: []
-      },
-      {
-        name: 'Tábata Glória',
-        image: tabata,
-        bio: 'Suspense, Romance e Biografia',
-        username: 'tabata',
-        password: '1234',
-        location: {
-          lat: null,
-          long: null
-        },
-        likes: [
-          {
-            id: 2,
-            image: nora,
-            title: 'Uma sombra do Passado',
-            bio: 'Novo romance de um dos maiores fenômenos editoriais da história. Há muitos anos, Fiona Bristow foi a única vítima que escapou das garras do Assassino da Echarpe Vermelha, o serial killer que matou seu noivo e seu amado cão. Após o trauma, ela escolhe reconstruir sua vida em uma ilha no noroeste do Pacífico, trabalhando como adestradora e voluntária na unidade canina de busca e resgate local.'
-          }
-        ],
-        dislikes: []
-      }
-    ];
-  }
-  try {
     var list_books = navigation.state.params.books;
   } catch(e) {
     var list_books = [
@@ -83,6 +37,38 @@ export default function Login({navigation}) {
         image: malala,
         title: 'Eu sou malala',
         bio: 'Eu sou Malala é a história de uma família exilada pelo terrorismo global, da luta pelo direito à educação feminina e dos obstáculos à valorização da mulher em uma sociedade que privilegia filhos homens. Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação. Mas em 9 de outubro de 2012, uma terça-feira, ela quase pagou o preço com a vida.'
+      }
+    ];
+  }
+  try {
+    var users = navigation.state.params.saved_users;
+  } catch(e) {
+    var users = [
+      {
+        name: 'Abner Ernani dos Anjos',
+        image: abner,
+        username: 'binao',
+        bio: 'Terror, Suspense e Mistério',
+        password: '123',
+        location: {
+          lat: null,
+          long: null
+        },
+        likes: [list_books[2]],
+        dislikes: []
+      },
+      {
+        name: 'Tábata Glória',
+        image: tabata,
+        bio: 'Suspense, Romance e Biografia',
+        username: 'tabata',
+        password: '1234',
+        location: {
+          lat: null,
+          long: null
+        },
+        likes: [list_books[1]],
+        dislikes: []
       }
     ];
   }
