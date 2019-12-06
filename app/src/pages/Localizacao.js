@@ -14,7 +14,7 @@ export default function Login({navigation}) {
         u.location.lat = await position.coords.latitude;
         u.location.long =  await position.coords.longitude;
       },
-      (error) => error = error.message,
+      async (error) => error = await error.message,
       { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
     );
     navigation.navigate('Main', { user: u, saved_users: users, books: list_books });
