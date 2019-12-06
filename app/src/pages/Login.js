@@ -3,21 +3,24 @@ import {Alert, KeyboardAvoidingView, Platform, Text, StyleSheet, Image, TextInpu
 
 import logo from '../assets/logo.png';
 import nora from '../assets/noraroberts.jpeg';
+import malala from '../assets/malala.jpeg';
 import stephen from '../assets/stephenking.jpeg';
+import harry from '../assets/harry.jpg';
+import abner from '../assets/abner.jpg';
+import tabata from '../assets/leitora.jpeg';
 
 export default function Login({navigation}) {
-  var u = {
-    name: null,
-    bio: null,
-    username: '',
-    password: '',
-    likes: [],
-    dislikes: []
-  }
   var users = [
     {
+      name: 'Abner Ernani dos Anjos',
+      image: abner,
       username: 'binao',
+      bio: 'Terror e Suspense',
       password: '123',
+      location: {
+        lat: null,
+        long: null
+      },
       likes: [
         {
           id: 2,
@@ -29,8 +32,15 @@ export default function Login({navigation}) {
       dislikes: []
     },
     {
+      name: 'Tábata Glória',
+      image: tabata,
+      bio: 'Suspense, Romance e Biografia',
       username: 'tabata',
       password: '1234',
+      location: {
+        lat: null,
+        long: null
+      },
       likes: [
         {
           id: 3,
@@ -42,19 +52,50 @@ export default function Login({navigation}) {
       dislikes: []
     }
   ];
+  var list_books = [
+    {
+      id: 4,
+      image: harry,
+      title: 'Harry Potter e a Pedra Flosofal',
+      bio: 'Harry Potter é um garoto órfão que vive infeliz com seus tios, os Dursleys. Ele recebe uma carta contendo um convite para ingressar em Hogwarts, uma famosa escola especializada em formar jovens bruxos. Inicialmente, Harry é impedido de ler a carta por seu tio, mas logo recebe a visita de Hagrid, o guarda-caça de Hogwarts, que chega para levá-lo até a escola. Harry adentra um mundo mágico que jamais imaginara, vivendo diversas aventuras com seus novos amigos, Rony Weasley e Hermione Granger.'
+    },
+    {
+      id: 3,
+      image: nora,
+      title: 'Uma sombra do Passado',
+      bio: 'Novo romance de um dos maiores fenômenos editoriais da história. Há muitos anos, Fiona Bristow foi a única vítima que escapou das garras do Assassino da Echarpe Vermelha, o serial killer que matou seu noivo e seu amado cão. Após o trauma, ela escolhe reconstruir sua vida em uma ilha no noroeste do Pacífico, trabalhando como adestradora e voluntária na unidade canina de busca e resgate local.'
+    },
+    {
+      id: 2,
+      image: stephen,
+      title: 'IT - A coisa',
+      bio: 'Um grupo de crianças se une para investigar o misterioso desaparecimento de vários jovens em sua cidade. Eles descobrem que o culpado é Pennywise, um palhaço cruel que se alimenta de seus medos e cuja violência teve origem há vários séculos.'
+    },
+    {
+      id: 1,
+      image: malala,
+      title: 'Eu sou malala',
+      bio: 'Eu sou Malala é a história de uma família exilada pelo terrorismo global, da luta pelo direito à educação feminina e dos obstáculos à valorização da mulher em uma sociedade que privilegia filhos homens. Quando o Talibã tomou controle do vale do Swat, uma menina levantou a voz. Malala Yousafzai recusou-se a permanecer em silêncio e lutou pelo seu direito à educação. Mas em 9 de outubro de 2012, uma terça-feira, ela quase pagou o preço com a vida.'
+    }
+  ];
+  var state = {
+    username: '',
+    password: ''
+  };
+  var u = {};
 
   handleUsername = (text) => {
-    u.username = text;
+    state.username = text;
   }
 
   handlePassword = (text) => {
-    u.password = text;
+    state.password = text;
   }
 
   function handleLogin() {
     var verify = false;
     for (var i = 0; i < users.length; i++) {
-      if (users[i].username === u.username & users[i].password === u.password) {
+      if (users[i].username === state.username & users[i].password === state.password) {
         verify = verify | true;
         u = users[i];
         break;
@@ -63,7 +104,7 @@ export default function Login({navigation}) {
       }
     }
     if (verify) {
-      navigation.navigate('Localizacao', { user: u, like: u.likes, dislike: u.dislikes });
+      navigation.navigate('Localizacao', { user: u, books: list_books });
     } else {
       Alert.alert(
         'Usuário não cadastrado'

@@ -1,64 +1,72 @@
 import React from 'react';
 import { SafeAreaView, View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 
-import leitora from '../assets/leitora.jpeg';
-import nora from '../assets/noraroberts.jpeg';
-import john from '../assets/johngreen.jpg';
-import malala from '../assets/malala.jpeg';
-import meg from '../assets/megcabot.jpg';
-import stephen from '../assets/stephenking.jpeg';
-import julia from '../assets/juliaquinn.jpg';
-import joe from '../assets/joehill.jpg';
-import tolkien from '../assets/jrrtolkien.jpg';
-import lisa from '../assets/lisakleypas.jpg';
-import michelle from '../assets/michelleobama.jpg';
-
 export default function Main({ navigation }) {
-  var images_cad = [julia, joe, tolkien, lisa, michelle, stephen, nora, malala];
-  var images_rec = [tolkien, stephen, julia, joe, lisa, michelle, nora, malala];
-  var likes = [];
-  var dislikes = [];
-  try {
-    likes = navigation.state.params.like;
-  } catch (e) {}
-  try {
-    dislikes = navigation.state.params.dislike;
-  } catch (e) {}
-
-  var books_likes = [];
-  for(let i = 0; i < likes.length; i++){
-    try {
-      books_likes.push(<Image style={styles.foto2} source={ likes[i].image } />);
-    } catch (e) {}
+  var u = navigation.state.params.user;
+  var list_books = navigation.state.params.books;
+  var images_cad = list_books;
+  function shuffle(array) {
+    var m = array.length, t, i;
+    while (m) {
+      i = Math.floor(Math.random() * m--);
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+    return array;
   }
-
+  var images_rec = shuffle(list_books);
+  var books_likes = [];
+  for(let i = 0; i < u.likes.length; i++){
+    books_likes.push(
+      <TouchableOpacity onPress={
+        () => setBook(u.likes[i])
+      }>
+        <Image style={styles.foto2} source={ u.likes[i].image } />
+      </TouchableOpacity>
+    );
+  }
   var books_rec = [];
   for(let i = 0; i < images_rec.length; i++){
-		books_rec.push(<Image style={styles.foto2} source={ images_rec[i] } />);
+		books_rec.push(
+      <TouchableOpacity onPress={
+        () => setBook(images_rec[i])
+      }>
+        <Image style={styles.foto2} source={ images_rec[i].image } />
+      </TouchableOpacity>
+    );
   }
-
   var books_cad = [];
   for(let i = 0; i < images_cad.length; i++){
-		books_cad.push(<Image style={styles.foto2} source={ images_cad[i] } />);
+		books_cad.push(
+      <TouchableOpacity onPress={
+        () => setBook(images_cad[i])
+      }>
+        <Image style={styles.foto2} source={ images_cad[i].image } />
+      </TouchableOpacity>
+    );
   }
-
   var verify = [];
-  if (likes.length !== 0) {
+  if (u.likes.length !== 0) {
     verify.push(<Text style={styles.livros}>Favoritos:</Text>);
   } else {
     verify.push(<Text style={styles.livros}>Sem favoritos</Text>);
-  }
-
-  function handleLivro() {
-    navigation.navigate('Livros');
   }
 
   function handleSair() {
     navigation.navigate('Login');
   }
 
+  function handleLivro() {
+    navigation.navigate('Livros', { user: u, books: list_books });
+  }
+
   function handleBuscar() {
-    navigation.navigate('Buscar', { like : likes, dislike : dislikes });
+    navigation.navigate('Buscar', { user: u, books: list_books });
+  }
+
+  function setBook(book) {
+    navigation.navigate('Buscar', { user: u, books: list_books, select: book });
   }
 
   return (
@@ -67,10 +75,11 @@ export default function Main({ navigation }) {
       <ScrollView>
         <View style={styles.cardContainer}>
           <View style={styles.card}>
-            <Image style={styles.foto} source={leitora} />
+            <Image style={styles.foto} source={ u.image } />
             <View style={styles.footer}>
-              <Text style={styles.name}>Vanessa Alencar</Text>
-              <Text style={styles.bio}>Adoro livros de Romances, Biografias e Suspenses</Text>
+              <Text style={styles.name}>{ u.name }</Text>
+              <Text style={styles.bio}>{ u.bio }</Text>
+              <Text style={styles.bio}>lat: { u.location.lat } e long: { u.location.long }</Text>
               <Text style={styles.livros}>Livros cadastrados:</Text>
               <ScrollView horizontal={true}>
                 { books_cad }

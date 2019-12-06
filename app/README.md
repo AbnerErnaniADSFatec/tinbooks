@@ -58,6 +58,18 @@ $ yarn install
 $ yarn add react-navigation react-native-gesture-handler react-native-reanimated
 ```
 
+### Para o controle da navegação e uso da localização
+#### Gerar uma API Key no [Google Cloud](https://cloud.google.com/)
+#### Instalar a biblioteca para o react-native
+```
+# npm install @react-native-community/geolocation --save
+```
+
+#### Criar um link simbólico para IOS e Android
+```
+# react-native link @react-native-community/geolocation
+```
+
 ### Adicionando o controle da comunicação com a API
 ```
 $ yarn add axios

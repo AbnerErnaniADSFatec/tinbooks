@@ -3,8 +3,10 @@ import { ScrollView, Platform, Text, StyleSheet, Image, TextInput, TouchableOpac
 import logo from '../assets/logo.png';
 
 export default function Cadastro({ navigation }) {
+    var u = navigation.state.params.user;
+
     function handleConfirma() {
-        navigation.navigate('Main');
+        navigation.navigate('Main', { user: u });
     }
 
     function handleSair() {

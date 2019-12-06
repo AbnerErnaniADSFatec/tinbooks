@@ -2,8 +2,9 @@ import React from 'react';
 import { ScrollView, View, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 
 export default function Livros({ navigation }) {
+    var u = navigation.state.params.user;
     function handleConfirma() {
-        navigation.navigate('Main');
+        navigation.navigate('Main', { user: u });
     }
     function handleSair() {
         navigation.navigate('Login');
