@@ -76,22 +76,22 @@ export default function Main({ navigation }) {
 
   function handleDislike() {
     if ( !verifyContains(selected.id, id_dislikes) && !verifyContains(selected.id, id_likes) ) {
-      dislikes.push(selected);
+      u.dislikes.push(selected);
     } else if (verifyContains(selected.id, id_likes)) {
       u.likes = u.likes.filter((data) => {
           return data.id != selected.id;
       });
-      dislikes.push(selected);
+      u.dislikes.push(selected);
     }
-    navigation.navigate('Main', { user: u, saved_users: users, books: list_books });
+    navigation.navigate('Main', { user: u, saved_users: users, books: saved });
   }
 
   function handleVoltar() {
-    navigation.navigate('Main', { user: u, saved_users: users, books: list_books });
+    navigation.navigate('Main', { user: u, saved_users: users, books: saved });
   }
 
   function handleSair() {
-    navigation.navigate('Login', { user: u, saved_users: users, books: list_books });
+    navigation.navigate('Login', { user: u, saved_users: users, books: saved });
   }
 
   return (

@@ -44,8 +44,8 @@ export default function Cadastro({ navigation }) {
 
     function handleConfirma() {
         var verify = false;
-        for (var i = 0; i < saved_users.length; i++) {
-            if ( user.password == saved_users[i].password ) {
+        for (var i = 0; i < users.length; i++) {
+            if ( user.password == users[i].password ) {
                 verify = verify | true;
                 break;
             } else {
@@ -97,10 +97,12 @@ export default function Cadastro({ navigation }) {
             <TextInput
                 placeholder="Senha"
                 style={styles.input}
+                secureTextEntry = {true}
                 onChangeText = { handlePassword }/>
             <TextInput
                 placeholder="Confirmar Senha"
-                style={styles.input} 
+                style={styles.input}
+                secureTextEntry = {true}
                 onChangeText = { handleConfirmPassword } />
             <TextInput
                 placeholder="Genêros de Interesse"

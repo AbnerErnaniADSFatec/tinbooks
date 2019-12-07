@@ -6,7 +6,9 @@ export default function Main({ navigation }) {
   var users = navigation.state.params.saved_users;
   var list_books = navigation.state.params.books;
   var images_cad = list_books;
-  function shuffle(array) {
+  function shuffle(vetor) {
+    var array = [];
+    for (var i = 0; i < vetor.length; i++) { array.push(vetor[i]) }
     var m = array.length, t, i;
     while (m) {
       i = Math.floor(Math.random() * m--);
@@ -16,7 +18,7 @@ export default function Main({ navigation }) {
     }
     return array;
   }
-  var images_rec = shuffle(list_books);
+  var images_rec = shuffle(images_cad);
   var books_likes = [];
   for(let i = 0; i < u.likes.length; i++){
     books_likes.push(

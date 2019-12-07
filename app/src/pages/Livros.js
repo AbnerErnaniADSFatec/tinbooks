@@ -1,19 +1,17 @@
 import React from 'react';
 import { ScrollView, View, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
-import book_img from '../assets/book.png';
+import book_img from '../assets/book_img.jpeg';
 
 export default function Livros({ navigation }) {
     var u = navigation.state.params.user;
     var users = navigation.state.params.saved_users;
     var list_books = navigation.state.params.books;
-    var book = [
-        {
-            id: null,
-            image: book_img,
-            title: '',
-            bio: ''
-        }
-    ];
+    var book = {
+        id: null,
+        image: book_img,
+        title: '',
+        bio: ''
+    };
 
     handleTitle = (text) => {
         book.title = text;
