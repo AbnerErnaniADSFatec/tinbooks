@@ -12,10 +12,10 @@ export default function Login({navigation}) {
     Geolocation.getCurrentPosition(
       async (position) => {
         u.location.lat = await position.coords.latitude;
-        u.location.long =  await position.coords.longitude;
+        u.location.long = await position.coords.longitude;
       },
       async (error) => error = await error.message,
-      { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
+      { enableHighAccuracy: false, timeout: 300000, maximumAge: 1000 },
     );
     navigation.navigate('Main', { user: u, saved_users: users, books: list_books });
   }

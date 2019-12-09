@@ -1,5 +1,5 @@
 import React from 'react';
-import {Alert, KeyboardAvoidingView, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native';
+import {Alert, ScrollView, KeyboardAvoidingView, Platform, Text, StyleSheet, Image, TextInput, TouchableOpacity} from 'react-native';
 
 import logo from '../assets/logo.png';
 import nora from '../assets/noraroberts.jpeg';
@@ -111,40 +111,38 @@ export default function Login({navigation}) {
   }
 
   return (
-    <KeyboardAvoidingView 
+    <ScrollView
       behavior = 'padding'
       enable = {Platform.OS == 'ios'}
-      style = {styles.container}
-    >
-      <Image source = {logo} />
-      <TextInput
-        autoCapitalize = 'none'
-        autoCorrect = {false}
-        placeholder = "Login" 
-        style={styles.input}
-        onChangeText = { handleUsername }
-      />
-      <TextInput
-        placeholder = "Senha"
-        secureTextEntry = {true}
-        style = {styles.input}
-        onChangeText = { handlePassword }
-      />
-      <TouchableOpacity onPress={handleLogin} style = {styles.button}>
-        <Text style = {styles.buttonText}>Confirmar</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={handleCadastro} style = {styles.button}>
-        <Text style = {styles.buttonText}>Cadastrar</Text>
-      </TouchableOpacity>
-    </KeyboardAvoidingView>
+      style = {styles.container}>
+        <Image source = {logo} />
+        <TextInput
+          autoCapitalize = 'none'
+          autoCorrect = {false}
+          placeholder = "Login" 
+          style={styles.input}
+          onChangeText = { handleUsername }
+        />
+        <TextInput
+          placeholder = "Senha"
+          secureTextEntry = {true}
+          style = {styles.input}
+          onChangeText = { handlePassword }
+        />
+        <TouchableOpacity onPress={handleLogin} style = {styles.button}>
+          <Text style = {styles.buttonText}>Confirmar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleCadastro} style = {styles.button}>
+          <Text style = {styles.buttonText}>Cadastrar</Text>
+        </TouchableOpacity>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#AEEDE2',
-    justifyContent: 'center',
+    backgroundColor: '#AEEDE2'
   },
 
   input: {
